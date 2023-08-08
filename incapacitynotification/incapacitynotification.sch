@@ -160,6 +160,9 @@ Version 2.0
 			<iso:assert test="kmehr:cd[@S='CD-TRANSACTION-INC-NOT']" id="Transaction" role="ERROR" flag="structure" >
 			Transaction must contain a dataset value. (Actual: <iso:value-of select="."/>)
 			</iso:assert>
+			<iso:assert test="kmehr:cd[@S='CD-TRANSACTION-TYPE' and .='incapacity' or .='incapacityextension' or .='incapacityrelapse' or .='adanormal' or .='adaextension' or .='adarelapse']" id="Transaction" role="ERROR" flag="structure" >
+			Transaction type must be one of these: "incapacity", "incapacityextension", "incapacityrelapse", "adanormal", "adaextension", "adarelapse". (Actual: <iso:value-of select="kmehr:cd[@S='CD-TRANSACTION-TYPE']"/>)
+			</iso:assert>
 	</iso:rule>
 	<iso:rule context="kmehr:transaction/kmehr:cd[@S='CD-TRANSACTION-INC-NOT']" >
 			<iso:assert test="current() = 'a' or current() = 'b' or current() = 'c'" id="Transaction" role="ERROR" flag="structure" >
@@ -171,14 +174,6 @@ Version 2.0
 			Transaction must be : "notification". (Actual: <iso:value-of select="."/>)
 			</iso:assert>
 	</iso:rule>
-	<iso:rule context="kmehr:folder/kmehr:transaction">
-			<iso:assert test="count(kmehr:cd[@S='CD-TRANSACTION']) = 1"  id="Transaction" role="ERROR"  flag="structure" >
-			A transaction must contain one cd value from CD-TRANSACTION and only one. (Number: <iso:value-of select="count(kmehr:cd[@S = 'CD-TRANSACTION'])"/>)
-			</iso:assert>
-			<iso:assert test="kmehr:cd[@S='CD-TRANSACTION-TYPE' and .='incapacity' or .='incapacityextension' or .='incapacityrelapse']" id="Transaction" role="ERROR" flag="structure" >
-			Transaction type must be one of these: "incapacity", "incapacityextension", "incapacityrelapse". (Actual: <iso:value-of select="kmehr:cd[@S='CD-TRANSACTION-TYPE']"/>)
-			</iso:assert>
-	</iso:rule>	
 </iso:pattern>
 
 <!-- DATES -->
@@ -286,6 +281,9 @@ Version 2.0
 			</iso:assert>
 			<iso:assert test="count(kmehr:content[kmehr:incapacity[kmehr:outofhomeallowed]]) = 1" id="Incapacity" role="ERROR" flag="structure"  >
 			Incapacity item must contain one (and only one) incapacity content with "outofhomeallowed" boolean value. (Number: <iso:value-of select="count(kmehr:content[kmehr:incapacity[kmehr:outofhomeallowed]])"/>)
+			</iso:assert>
+			<iso:assert test="kmehr:content/kmehr:incapacity/kmehr:percentage" id="Incapacity" role="ERROR" flag="structure"  >
+			Incapacity item must have a "percentage".
 			</iso:assert>
 			<iso:assert test="kmehr:beginmoment" id="Incapacity" role="ERROR" flag="structure"  >
 			Incapacity item must have a "beginmoment".
