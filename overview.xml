@@ -2,7 +2,7 @@
    <schematron>
        <name>incapacitynotification_v2</name>
        <path>https://raw.githubusercontent.com/ehealthplatformstandards/schematrons/issue-2/incapacitynotification/incapacitynotification.sch</path>
-       <hash>L2U01vIrS/W/jkn8tW9YrQaFWZExVaPZSJPbqK9Vvwg=</hash>
+       <hash>tbOd3qHA3WxOSMu9YkHuFEggcle8ceKefiqEv5qtiG0=</hash>
    </schematron>
    <schematron>
        <name>incapacitynotification</name>
