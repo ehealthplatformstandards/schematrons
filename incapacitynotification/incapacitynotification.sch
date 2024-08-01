@@ -190,8 +190,8 @@ Version 2.0
 <iso:pattern id="clinicalsummary.structure.checks">
 	<iso:title>Items structure checks</iso:title>
 	<iso:rule context="kmehr:item">
-			<iso:assert test="count(kmehr:cd[@S = 'CD-ITEM']) + count(kmehr:cd[@S='LOCAL' and @SL='MMEDIATT-ITEM' and not(.='principal')]) = 1" id="Item" role="ERROR" flag="structure"  >
-			All items must be codified by one code CD-ITEM or local 'MMEDIATT-ITEM' and only one. (Number: <iso:value-of select="count(kmehr:cd[@S='CD-ITEM']) + count(kmehr:cd[@S='LOCAL' and @SL='MMEDIATT-ITEM'])"/>)
+			<iso:assert test="count(kmehr:cd[@S = 'CD-ITEM']) + count(kmehr:cd[@S = 'CD-INVOLVED-PARTY']) + count(kmehr:cd[@S='LOCAL' and @SL='MMEDIATT-ITEM' and not(.='principal')]) = 1" id="Item" role="ERROR" flag="structure"  >
+			All items must be codified by one code CD-ITEM, CD-INVOLVED-PARTY  or local 'MMEDIATT-ITEM' and only one. (Number: <iso:value-of select="count(kmehr:cd[@S='CD-ITEM']) + count(kmehr:cd[@S = 'CD-INVOLVED-PARTY']) + count(kmehr:cd[@S='LOCAL' and @SL='MMEDIATT-ITEM'])"/>)
 			</iso:assert>
 	</iso:rule>
 	<iso:rule context="kmehr:transaction[kmehr:cd[@S='CD-TRANSACTION' and .='notification']]//kmehr:item/kmehr:cd[@S = 'CD-ITEM']">
