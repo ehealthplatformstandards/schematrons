@@ -104,15 +104,15 @@ Version 2.1
 <!-- HEADER -->
 <iso:pattern id="header.structure.checks" role="header">
 	<iso:title>Header structure checks</iso:title>
-	<iso:rule context="kmehr:header/kmehr:recipient/kmehr:hcparty/kmehr:id[@S='ID-EHP' and .='1990002015' or @S='ID-CBE' and .='0869909460' or .='0308357555']" >
+	<iso:rule context="kmehr:header/kmehr:recipient/kmehr:hcparty/kmehr:id[@S='ID-CBE' and .='0869909460' or .='0308357555']" >
 			<iso:assert test="not(//kmehr:transaction[kmehr:cd[@S='CD-TRANSACTION' and .='notification']]//kmehr:item[kmehr:cd[@S='CD-ITEM' and .='incapacity']]/kmehr:content[kmehr:incapacity/kmehr:incapacityreason/kmehr:cd[@S='CD-INCAPACITYREASON' and .='pregnancy']])" id="Header" role="ERROR" flag="structure" >
-			Pregnancy incapacity reason can't be present if the recipient id is "1990002015", "0869909460" or "0308357555".
+			Pregnancy incapacity reason can't be present if the recipient id is "0869909460" or "0308357555".
 			</iso:assert>
 			<iso:assert test="not(//kmehr:transaction[kmehr:cd[@S='CD-TRANSACTION' and .='notification']]//kmehr:item/kmehr:cd[@S='LOCAL' and @SL='MMEDIATT-ITEM' and .='expectedbirthgivingdate'])" id="Header" role="ERROR" flag="structure" >
-			Expected birth giving date can't be present if the recipient id is "1990002015", "0869909460" or "0308357555".
+			Expected birth giving date can't be present if the recipient id is "0869909460" or "0308357555".
 			</iso:assert>
 			<iso:assert test="not(//kmehr:transaction[kmehr:cd[@S='CD-TRANSACTION' and .='notification']]//kmehr:item/kmehr:cd[@S='LOCAL' and @SL='MMEDIATT-ITEM' and .='maternityleave'])" id="Header" role="ERROR" flag="structure" >
-			Maternity leave can't be present if the recipient id is "1990002015", "0869909460" or "0308357555".
+			Maternity leave can't be present if the recipient id is "0869909460" or "0308357555".
 			</iso:assert>
 	</iso:rule> 
 	<iso:rule context="kmehr:header[//kmehr:transaction/kmehr:item[kmehr:cd[@S='CD-ITEM' and .='incapacity']]/kmehr:content[kmehr:incapacity/kmehr:incapacityreason/kmehr:cd[@S='CD-INCAPACITYREASON' and .='pregnancy']] and //kmehr:patient/kmehr:profession/kmehr:cd[@S='CD-EMPLOYMENTSITUATION' and .='selfemployed']]/kmehr:recipient/kmehr:hcparty/kmehr:id[@S='ID-CBE' and .='0820563481']" >
