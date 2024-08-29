@@ -2,8 +2,8 @@
 <!-- 
 Property : eHealth
 Author   : eh068
-Date     : 2024-08-01
-Version 2.1
+Date     : 2024-08-29
+Version 2.2
 
 -->
 <iso:schema 	xmlns="http://purl.oclc.org/dsdl/schematron"
