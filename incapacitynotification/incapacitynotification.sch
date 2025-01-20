@@ -2,8 +2,8 @@
 <!-- 
 Property : eHealth
 Author   : eh068
-Date     : 2024-08-29
-Version 2.2
+Date     : 2025-01-20
+Version 2.3
 
 -->
 <iso:schema 	xmlns="http://purl.oclc.org/dsdl/schematron"
@@ -325,6 +325,12 @@ Version 2.2
 	<iso:rule context="kmehr:transaction[kmehr:cd[@S='CD-TRANSACTION' and .='notification']]/kmehr:item[kmehr:cd[@S='CD-ITEM' and .='diagnosis']]">
 			<iso:assert test="count(kmehr:content[kmehr:cd]) + count(kmehr:content[kmehr:text]) &gt; 0" id="Diagnosis" role="ERROR" flag="structure"  >
 			Diagnosis item must contain at least one (and only one) cd or text content. (Number: <iso:value-of select="count(kmehr:content[kmehr:cd])"/>)
+			</iso:assert>
+			<iso:assert test="count(kmehr:content/kmehr:cd[@S='ICD']) &lt;= 1" id="Diagnosis" role="ERROR" flag="structure">
+			Diagnosis can only contain one ICD code.
+			</iso:assert>
+			<iso:assert test="count(kmehr:content/kmehr:cd[@S='ICPC']) &lt;= 1" id="Diagnosis" role="ERROR" flag="structure">
+			Diagnosis can only contain one ICPC code.
 			</iso:assert>
 			<iso:assert test="kmehr:content/kmehr:cd[@S = 'CD-SNOMED']" id="Diagnosis" role="WARNING" flag="structure"  >
 			CD-SNOMED should be used for codified content.
