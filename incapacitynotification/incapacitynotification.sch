@@ -2,8 +2,8 @@
 <!-- 
 Property : eHealth
 Author   : eh068
-Date     : 2025-01-20
-Version 2.3
+Date     : 2025-03-18
+Version 2.4
 
 -->
 <iso:schema 	xmlns="http://purl.oclc.org/dsdl/schematron"
@@ -185,6 +185,17 @@ Version 2.3
 			</iso:assert>
 	</iso:rule>
 </iso:pattern>
+
+<!-- DATASET C SPECIFIC RULES -->
+<iso:pattern id="datasetc.structure.checks" role="author">
+	<iso:title>DATASET C structure checks</iso:title>
+	<iso:rule context="//kmehr:transaction[kmehr:cd[@S='CD-TRANSACTION-INC-NOT' and .='c']]" >
+			<iso:assert test="not(kmehr:author/kmehr:hcparty/kmehr:id[@S='INSS'])" id="Author" role="ERROR" flag="structure"  >
+			Author can't have a INSS when dataset is "c"._||__||__||_
+			</iso:assert>
+	</iso:rule>
+</iso:pattern>
+
 
 <!-- ITEMS -->
 <iso:pattern id="clinicalsummary.structure.checks">
