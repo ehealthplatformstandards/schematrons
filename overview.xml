@@ -1,8 +1,8 @@
 <schematrons xmlns="urn:be:fgov:ehealth:standards:validation:v1">
    <schematron>
        <name>incapacitynotification_v2</name>
-       <path>https://raw.githubusercontent.com/ehealthplatformstandards/schematrons/issue-8/incapacitynotification/incapacitynotification.sch</path>
-       <hash>azWkwODh5XdzQnl9NuX4YIfSR7YGFydfXaDVHqJ+/CY=</hash>
+       <path>https://raw.githubusercontent.com/ehealthplatformstandards/schematrons/issue-10/incapacitynotification/incapacitynotification.sch</path>
+       <hash>wxAuHmqPe6ldM3/q45Dq4bdp4XEQNtgyLjU1t57JWj8=</hash>
    </schematron>
    <schematron>
        <name>incapacitynotification</name>
