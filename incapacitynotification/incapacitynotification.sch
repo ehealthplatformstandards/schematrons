@@ -2,7 +2,7 @@
 <!-- 
 Property : eHealth
 Author   : eh068
-Date     : 2025-03-18
+Date     : 2025-11-14
 -->
 <iso:schema 	xmlns="http://purl.oclc.org/dsdl/schematron"
 						xmlns:iso="http://purl.oclc.org/dsdl/schematron"
@@ -120,6 +120,29 @@ Date     : 2025-03-18
 			<iso:assert test="count(//kmehr:transaction/kmehr:item/kmehr:cd[@S='LOCAL' and @SL='MMEDIATT-ITEM' and .='maternityleave']) &gt; 0" id="Maternity leave" role="ERROR" flag="structure"  >
 			Maternity leave must be present for a female self-employed pregnancy. (Number: <iso:value-of select="count(//kmehr:transaction/kmehr:item/kmehr:cd[@S='CD-ITEM' and .='maternityleave'])"/>)
 			</iso:assert>
+	</iso:rule>
+	<iso:rule context="kmehr:header/kmehr:recipient/kmehr:hcparty/kmehr:id[@S='ID-CBE' and .='0820563481' or @S='ID-EHP' and .='1990002015']">
+		<iso:assert test="
+			not(
+				//kmehr:transaction/kmehr:item[
+					kmehr:cd[@S='CD-ITEM' and .='incapacity']
+					and kmehr:beginmoment/kmehr:date
+					and kmehr:endmoment/kmehr:date
+					and (
+						(year-from-date(xs:date(normalize-space(kmehr:endmoment/kmehr:date))) * 12 + month-from-date(xs:date(normalize-space(kmehr:endmoment/kmehr:date)))) >
+						(year-from-date(xs:date(normalize-space(kmehr:beginmoment/kmehr:date))) * 12 + month-from-date(xs:date(normalize-space(kmehr:beginmoment/kmehr:date)))) + 3
+
+						or (
+							(year-from-date(xs:date(normalize-space(kmehr:endmoment/kmehr:date))) * 12 + month-from-date(xs:date(normalize-space(kmehr:endmoment/kmehr:date)))) =
+							(year-from-date(xs:date(normalize-space(kmehr:beginmoment/kmehr:date))) * 12 + month-from-date(xs:date(normalize-space(kmehr:beginmoment/kmehr:date)))) + 3
+							and day-from-date(xs:date(normalize-space(kmehr:endmoment/kmehr:date))) > day-from-date(xs:date(normalize-space(kmehr:beginmoment/kmehr:date)))
+						)
+					)
+				]
+			)
+		" id="Header" role="ERROR" flag="structure">
+			The endmoment must not be more than 3 calendar months after the beginmoment when recipient id is "0820563481" or "1990002015".
+		</iso:assert>
 	</iso:rule>
 </iso:pattern>
 
