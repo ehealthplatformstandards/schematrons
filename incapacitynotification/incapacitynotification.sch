@@ -121,7 +121,7 @@ Date     : 2025-11-14
 			Maternity leave must be present for a female self-employed pregnancy. (Number: <iso:value-of select="count(//kmehr:transaction/kmehr:item/kmehr:cd[@S='CD-ITEM' and .='maternityleave'])"/>)
 			</iso:assert>
 	</iso:rule>
-	<iso:rule context="kmehr:header/kmehr:recipient/kmehr:hcparty/kmehr:id[@S='ID-CBE' and .='0820563481']">
+	<iso:rule context="kmehr:header/kmehr:recipient/kmehr:hcparty/kmehr:id[@S='ID-CBE' and .='0820563481' or @S='ID-EHP' and .='1990002015']">
 		<iso:assert test="
 			not(
 				//kmehr:transaction/kmehr:item[
@@ -141,7 +141,7 @@ Date     : 2025-11-14
 				]
 			)
 		" id="Header" role="ERROR" flag="structure">
-			The endmoment must not be more than 3 calendar months after the beginmoment when recipient id is "0820563481".
+			The endmoment must not be more than 3 calendar months after the beginmoment when recipient id is "0820563481" or "1990002015".
 		</iso:assert>
 	</iso:rule>
 </iso:pattern>
