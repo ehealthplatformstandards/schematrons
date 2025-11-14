@@ -191,7 +191,7 @@ Version 2.4
 	<iso:title>DATASET C structure checks</iso:title>
 	<iso:rule context="//kmehr:transaction[kmehr:cd[@S='CD-TRANSACTION-INC-NOT' and .='c']]" >
 			<iso:assert test="not(kmehr:author/kmehr:hcparty/kmehr:id[@S='INSS'])" id="Author" role="ERROR" flag="structure"  >
-			Author can't have a INSS when dataset is "c"._||__||__||_
+			Author can't have an INSS when dataset is "c"._||__||__||_
 			</iso:assert>
 	</iso:rule>
 </iso:pattern>
