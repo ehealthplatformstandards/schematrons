@@ -3,8 +3,6 @@
 Property : eHealth
 Author   : eh068
 Date     : 2025-05-23
-Version 1.11
-
 -->
 <iso:schema 	xmlns="http://purl.oclc.org/dsdl/schematron"
 						xmlns:iso="http://purl.oclc.org/dsdl/schematron"
