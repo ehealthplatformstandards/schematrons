@@ -6,7 +6,7 @@
    </schematron>
    <schematron>
        <name>incapacitynotification</name>
-       <path>https://raw.githubusercontent.com/ehealthplatformstandards/schematrons/issue-9/incapacitynotification/incapacitynotification.sch</path>
-       <hash>u3swlUaJaa24RPxBLmm9nng52RLQET9G0FmzwePJxGE=</hash>
+       <path>https://raw.githubusercontent.com/ehealthplatformstandards/schematrons/issue-15/incapacitynotification/incapacitynotification.sch</path>
+       <hash>5Sm32I1JKuYokmdc2MFKHaw79Xr8cGVHXjevzZXrtCQ=</hash>
    </schematron>
 </schematrons>
