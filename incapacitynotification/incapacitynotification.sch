@@ -2,7 +2,7 @@
 <!-- 
 Property : eHealth
 Author   : eh068
-Date     : 2025-11-14
+Date     : 2026-01-07
 -->
 <iso:schema 	xmlns="http://purl.oclc.org/dsdl/schematron"
 						xmlns:iso="http://purl.oclc.org/dsdl/schematron"
@@ -135,7 +135,7 @@ Date     : 2025-11-14
 						or (
 							(year-from-date(xs:date(normalize-space(kmehr:endmoment/kmehr:date))) * 12 + month-from-date(xs:date(normalize-space(kmehr:endmoment/kmehr:date)))) =
 							(year-from-date(xs:date(normalize-space(kmehr:beginmoment/kmehr:date))) * 12 + month-from-date(xs:date(normalize-space(kmehr:beginmoment/kmehr:date)))) + 3
-							and day-from-date(xs:date(normalize-space(kmehr:endmoment/kmehr:date))) > day-from-date(xs:date(normalize-space(kmehr:beginmoment/kmehr:date)))
+							and day-from-date(xs:date(normalize-space(kmehr:endmoment/kmehr:date))) >= day-from-date(xs:date(normalize-space(kmehr:beginmoment/kmehr:date)))
 						)
 					)
 				]
