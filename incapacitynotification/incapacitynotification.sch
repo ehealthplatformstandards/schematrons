@@ -2,7 +2,7 @@
 <!-- 
 Property : eHealth
 Author   : eh068
-Date     : 2026-01-07
+Date     : 2026-01-08
 -->
 <iso:schema 	xmlns="http://purl.oclc.org/dsdl/schematron"
 						xmlns:iso="http://purl.oclc.org/dsdl/schematron"
@@ -159,17 +159,17 @@ Date     : 2026-01-07
 			Value from CD-ADDRESS must be 'careaddress'. (Value: <iso:value-of select="kmehr:cd[@S = 'CD-ADDRESS']"/>)
 			</iso:assert>
 			<iso:assert test="not(//kmehr:transaction/kmehr:cd[@S='CD-TRANSACTION-INC-NOT' and .='c'])" id="Patient" role="ERROR" flag="structure"  >
-			Dataset 'c' can't have care address. (dataset: <iso:value-of select="//kmehr:transaction/kmehr:cd[@S='CD-TRANSACTION-INC-NOT']"/>)
+			Dataset 'c' can't have care address.
 			</iso:assert>
 	</iso:rule>
 	<iso:rule context="kmehr:patient/kmehr:telecom">
 			<iso:assert test="not(//kmehr:transaction/kmehr:cd[@S='CD-TRANSACTION-INC-NOT' and .='c'])" id="Patient" role="ERROR" flag="structure"  >
-			Dataset 'c' can't have telecom. (dataset: <iso:value-of select="//kmehr:transaction/kmehr:cd[@S='CD-TRANSACTION-INC-NOT']"/>)
+			Dataset 'c' can't have telecom.
 			</iso:assert>
 	</iso:rule>	
 	<iso:rule context="kmehr:patient/kmehr:profession">
 			<iso:assert test="not(//kmehr:transaction/kmehr:cd[@S='CD-TRANSACTION-INC-NOT' and .='c'])" id="Patient" role="ERROR" flag="structure"  >
-			Dataset 'c' can't have profession. (dataset: <iso:value-of select="//kmehr:transaction/kmehr:cd[@S='CD-TRANSACTION-INC-NOT']"/>)
+			Dataset 'c' can't have profession.
 			</iso:assert>
 	</iso:rule>	
 </iso:pattern>
@@ -179,7 +179,7 @@ Date     : 2026-01-07
 	<iso:title>Transaction structure checks</iso:title>
 	<iso:rule context="kmehr:transaction" >
 			<iso:assert test="kmehr:cd[@S='CD-TRANSACTION-INC-NOT']" id="Transaction" role="ERROR" flag="structure" >
-			Transaction must contain a dataset value. (Actual: <iso:value-of select="."/>)
+			Transaction must contain a dataset value.
 			</iso:assert>
 			<iso:assert test="kmehr:cd[@S='CD-TRANSACTION-TYPE' and .='incapacity' or .='incapacityextension' or .='incapacityrelapse' or .='adanormal' or .='adaextension' or .='adarelapse']" id="Transaction" role="ERROR" flag="structure" >
 			Transaction type must be one of these: "incapacity", "incapacityextension", "incapacityrelapse", "adanormal", "adaextension", "adarelapse". (Actual: <iso:value-of select="kmehr:cd[@S='CD-TRANSACTION-TYPE']"/>)
