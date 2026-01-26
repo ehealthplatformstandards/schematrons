@@ -2,7 +2,7 @@
 <!-- 
 Property : eHealth
 Author   : eh068
-Date     : 2025-12-19
+Date     : 2026-01-26
 -->
 <iso:schema 	xmlns="http://purl.oclc.org/dsdl/schematron"
 						xmlns:iso="http://purl.oclc.org/dsdl/schematron"
@@ -135,7 +135,7 @@ Date     : 2025-12-19
 				]
 			)
 		" id="Header" role="ERROR" flag="structure">
-			The endmoment must not be more than 3 calendar months after the beginmoment when recipient id is "0820563481" or "1990002015".
+			The endmoment must not be later than three calendar months minus one day after the beginmoment when recipient id is "0820563481" or "1990002015".
 		</iso:assert>
 	</iso:rule>
 </iso:pattern>
