@@ -171,9 +171,17 @@ Date     : 2026-01-26
 <!-- DATES -->
 <iso:pattern id="date.structure.checks" role="transaction">
 	<iso:title>Date structure checks</iso:title>
+	<iso:rule context="kmehr:beginmoment" >
+			<iso:assert test="kmehr:date" id="Dates" role="ERROR" flag="structure"  >
+			Beginmoment must be a date.
+			</iso:assert>
+	</iso:rule>
 	<iso:rule context="kmehr:endmoment" >
 			<iso:assert test=". ge ../kmehr:beginmoment" id="Dates" role="ERROR" flag="structure"  >
 			Beginmoment must be before endmoment.
+			</iso:assert>
+			<iso:assert test="kmehr:date" id="Dates" role="ERROR" flag="structure"  >
+			Endmoment must be a date.
 			</iso:assert>
 	</iso:rule>
 </iso:pattern>
