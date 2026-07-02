@@ -135,7 +135,7 @@ Date     : 2026-07-02
 				]
 			)
 		" id="Header" role="ERROR" flag="structure">
-			The endmoment must not be later than three calendar months minus one day after the beginmoment when recipient id is "0820563481" or "1990002015".
+			The endmoment must not be later than one calendar year minus one day after the beginmoment when recipient id is "0820563481" or "1990002015".
 		</iso:assert>
 	</iso:rule>
 </iso:pattern>
