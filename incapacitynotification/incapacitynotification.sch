@@ -2,7 +2,7 @@
 <!-- 
 Property : eHealth
 Author   : eh068
-Date     : 2026-01-26
+Date     : 2026-07-02
 -->
 <iso:schema 	xmlns="http://purl.oclc.org/dsdl/schematron"
 						xmlns:iso="http://purl.oclc.org/dsdl/schematron"
@@ -124,11 +124,11 @@ Date     : 2026-01-26
 					and kmehr:endmoment/kmehr:date
 					and (
 						(year-from-date(xs:date(normalize-space(kmehr:endmoment/kmehr:date))) * 12 + month-from-date(xs:date(normalize-space(kmehr:endmoment/kmehr:date)))) >
-						(year-from-date(xs:date(normalize-space(kmehr:beginmoment/kmehr:date))) * 12 + month-from-date(xs:date(normalize-space(kmehr:beginmoment/kmehr:date)))) + 3
+						(year-from-date(xs:date(normalize-space(kmehr:beginmoment/kmehr:date))) * 12 + month-from-date(xs:date(normalize-space(kmehr:beginmoment/kmehr:date)))) + 12
 
 						or (
 							(year-from-date(xs:date(normalize-space(kmehr:endmoment/kmehr:date))) * 12 + month-from-date(xs:date(normalize-space(kmehr:endmoment/kmehr:date)))) =
-							(year-from-date(xs:date(normalize-space(kmehr:beginmoment/kmehr:date))) * 12 + month-from-date(xs:date(normalize-space(kmehr:beginmoment/kmehr:date)))) + 3
+							(year-from-date(xs:date(normalize-space(kmehr:beginmoment/kmehr:date))) * 12 + month-from-date(xs:date(normalize-space(kmehr:beginmoment/kmehr:date)))) + 12
 							and day-from-date(xs:date(normalize-space(kmehr:endmoment/kmehr:date))) >= day-from-date(xs:date(normalize-space(kmehr:beginmoment/kmehr:date)))
 						)
 					)
