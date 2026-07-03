@@ -130,18 +130,18 @@ Date     : 2026-01-08
 					and kmehr:endmoment/kmehr:date
 					and (
 						(year-from-date(xs:date(normalize-space(kmehr:endmoment/kmehr:date))) * 12 + month-from-date(xs:date(normalize-space(kmehr:endmoment/kmehr:date)))) >
-						(year-from-date(xs:date(normalize-space(kmehr:beginmoment/kmehr:date))) * 12 + month-from-date(xs:date(normalize-space(kmehr:beginmoment/kmehr:date)))) + 3
+						(year-from-date(xs:date(normalize-space(kmehr:beginmoment/kmehr:date))) * 12 + month-from-date(xs:date(normalize-space(kmehr:beginmoment/kmehr:date)))) + 12
 
 						or (
 							(year-from-date(xs:date(normalize-space(kmehr:endmoment/kmehr:date))) * 12 + month-from-date(xs:date(normalize-space(kmehr:endmoment/kmehr:date)))) =
-							(year-from-date(xs:date(normalize-space(kmehr:beginmoment/kmehr:date))) * 12 + month-from-date(xs:date(normalize-space(kmehr:beginmoment/kmehr:date)))) + 3
+							(year-from-date(xs:date(normalize-space(kmehr:beginmoment/kmehr:date))) * 12 + month-from-date(xs:date(normalize-space(kmehr:beginmoment/kmehr:date)))) + 12
 							and day-from-date(xs:date(normalize-space(kmehr:endmoment/kmehr:date))) >= day-from-date(xs:date(normalize-space(kmehr:beginmoment/kmehr:date)))
 						)
 					)
 				]
 			)
 		" id="Header" role="ERROR" flag="structure">
-			The endmoment must not be later than three calendar months minus one day after the beginmoment when recipient id is "0820563481" or "1990002015".
+			The endmoment must not be later than 12 months minus one day after the beginmoment when recipient id is "0820563481" or "1990002015".
 		</iso:assert>
 	</iso:rule>
 </iso:pattern>
