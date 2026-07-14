@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- 
-Property : eHealth
-Author   : eh068
-Date     : 2026-07-03
+Property    : eHealth
+Author      : eh068
+Date        : 2026-07-14
 -->
 <iso:schema 	xmlns="http://purl.oclc.org/dsdl/schematron"
 						xmlns:iso="http://purl.oclc.org/dsdl/schematron"
@@ -214,6 +214,14 @@ Date     : 2026-07-03
 			<iso:assert test="not(kmehr:author/kmehr:hcparty/kmehr:id[@S='INSS'])" id="Author" role="ERROR" flag="structure"  >
 			Author can't have an INSS when dataset is "c"._||__||__||_
 			</iso:assert>
+            <iso:assert test="kmehr:item/kmehr:text[
+                          (@L='fr' and normalize-space(.)='Je soussigné, Docteur en médecine, certifie avoir interrogé ce jour')
+                          or
+                          (@L='nl' and normalize-space(.)='Ik, ondergetekende, dokter in de geneeskunde, verklaar vandaag te hebben ondervraagd')
+                  ]"
+                  id="IncapacitySignatureRequired" role="ERROR" flag="structure">
+                  Signature text (FR or NL) is required for incapacity transaction.
+            </iso:assert>
 	</iso:rule>
 </iso:pattern>
 
