@@ -207,6 +207,19 @@ Date        : 2026-07-14
 	</iso:rule>
 </iso:pattern>
 
+<!-- DATASET B SPECIFIC RULES -->
+<iso:pattern id="datasetb.recipient.checks">
+  <iso:title>DATASET B recipient checks</iso:title>
+  <iso:rule context="kmehr:transaction[.//kmehr:recipient/kmehr:hcparty/kmehr:id[@S='ID-CBE' and .='0869909460']]">
+    <iso:assert test="kmehr:cd[@S='CD-TRANSACTION-INC-NOT'] = 'b'"
+                id="PoliceRecipientOnlyForDatasetB"
+                role="ERROR"
+                flag="business">
+        The recipient CBE=0869909460 is only allowed in Dataset B. (Found: <iso:value-of select="kmehr:cd[@S='CD-TRANSACTION-INC-NOT']"/>)
+    </iso:assert>
+  </iso:rule>
+</iso:pattern>
+
 <!-- DATASET C SPECIFIC RULES -->
 <iso:pattern id="datasetc.structure.checks" role="author">
 	<iso:title>DATASET C structure checks</iso:title>
